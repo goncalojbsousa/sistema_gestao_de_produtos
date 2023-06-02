@@ -40,7 +40,9 @@ public class Sistema {
         String utilizador = scanner.nextLine();
         System.out.println("Senha:");
         String senha = scanner.nextLine();
-        scanner.nextLine(); // Limpar o buffer do scanner
+
+        // nao tem necessidade de limpar o buffer
+        //scanner.nextLine(); // Limpar o buffer do scanner
 
         for (Utilizador conta : contas.values()) {
             //verifica se os dados de login estao corretos
@@ -78,10 +80,10 @@ public class Sistema {
             }
         }
     }
-    public void adicionarProduto() {
+    public void adicionarProduto(Scanner scanner) {
         System.out.print("Nome do produto: ");
+        if(scanner.hasNextLine()) scanner.nextLine(); // Limpar o buffer do scanner (caso haja alguma coisa)
         String nome = scanner.nextLine();
-        scanner.nextLine(); // Limpar o buffer do scanner
 
         // Verificar se o produto já existe
         for (Produto produto : produtos) {
@@ -124,10 +126,10 @@ public class Sistema {
             }
         }
     }
-    public void pesquisar(){
+    public void pesquisar(Scanner scanner){
         System.out.println("Digite o nome ou categoria do produto:");
+        if(scanner.hasNextLine()) scanner.nextLine(); // Limpar o buffer do scanner
         String termo = scanner.nextLine();
-        scanner.nextLine(); // Limpar o buffer do scanner
         for (Produto produto : produtos) {
             if(produto.getNome().contains(termo) || produto.getCategoria().contains(termo)){
                 produtosCorrespondentes.add(produto);
@@ -146,6 +148,10 @@ public class Sistema {
                 System.out.println("Quantidade Stock: " + p.getQuantidadeStock());
                 System.out.println("============================================");
             }
+            /* apos exibir a lista com os resultados, é necessario limpar para quando houver uma nova busca, os mesmos
+            resultados nao aparecerem de novo
+             */
+            produtosCorrespondentes.clear();
         }
     }
     public void removerProduto() {
