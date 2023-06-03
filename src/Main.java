@@ -12,7 +12,8 @@ public class Main {
             System.out.println("\nOpção:");
 
             int opcao = scanner.nextInt();
-            scanner.nextLine(); // Limpar o buffer do scanner
+            // nao tem necessidade de limpar o buffer
+            //scanner.nextLine(); // Limpar o buffer do scanner
 
             switch (opcao) {
                 case 1:
@@ -28,13 +29,14 @@ public class Main {
                             System.out.println("5 - Remover produto");
                             System.out.println("6 - Perquisar produto");
                             int opcaoLogado = scanner.nextInt();
-                            scanner.nextLine(); // Limpar o buffer do scanner
+                            // nao tem necessidade de limpar o buffer
+                            //scanner.nextLine(); // Limpar o buffer do scanner
                             switch(opcaoLogado) {
                                 case 1:
                                     sistema.editarConta();
                                     break;
                                 case 2:
-                                    sistema.adicionarProduto();
+                                    sistema.adicionarProduto(scanner);
                                     break;
                                 case 3:
                                     sistema.editarProduto();
@@ -46,7 +48,7 @@ public class Main {
                                     sistema.removerProduto();
                                     break;
                                 case 6:
-                                    sistema.pesquisar();
+                                    sistema.pesquisar(scanner);
                                     break;
                                 case 7:
                                     //volta para o inicio
