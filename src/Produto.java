@@ -5,14 +5,16 @@ public class Produto {
     private String categoria;
     private double preco;
     private int quantidadeStock;
+    private int id;
 
 
-    public Produto(String nome, String descricao, String categoria, double preco, int quantidadeStock) {
+    public Produto(String nome, String descricao, String categoria, double preco, int quantidadeStock, int id) {
         this.nome = nome;
         this.descricao = descricao;
         this.categoria = categoria;
         this.preco = preco;
         this.quantidadeStock = quantidadeStock;
+        this.id = id;
     }
 
 
@@ -56,4 +58,11 @@ public class Produto {
         this.quantidadeStock = quantidadeStock;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
